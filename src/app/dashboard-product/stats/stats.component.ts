@@ -1,7 +1,7 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { Title }     from '@angular/platform-browser';
 
-import { TdDataTableSortingOrder, TdDataTableService, ITdDataTableSortChangeEvent } from '@covalent/core';
+import { TdDataTableSortingOrder, TdDataTableService, ITdDataTableSortChangeEvent, ITdDataTableSelectEvent } from '@covalent/core';
 import { IPageChangeEvent } from '@covalent/core';
 
 const NUMBER_FORMAT: any = (v: {value: number}) => v.value;
@@ -138,6 +138,7 @@ export class ProductStatsComponent implements AfterViewInit {
 
   sort(sortEvent: ITdDataTableSortChangeEvent): void {
     this.sortBy = sortEvent.name;
+    console.log(this.sortBy);
     this.sortOrder = sortEvent.order;
     this.filter();
   }
@@ -153,7 +154,10 @@ export class ProductStatsComponent implements AfterViewInit {
     this.pageSize = pagingEvent.pageSize;
     this.filter();
   }
-
+  selectEvent(selectEvent : ITdDataTableSelectEvent): void {
+    console.log(selectEvent.row);
+    console.log("appelsin");
+  }
   filter(): void {
     let newData: any[] = this.data;
     newData = this._dataTableService.filterData(newData, this.searchTerm, true);
