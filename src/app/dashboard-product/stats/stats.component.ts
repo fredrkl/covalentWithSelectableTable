@@ -158,6 +158,10 @@ export class ProductStatsComponent implements AfterViewInit {
     console.log(selectEvent.row);
     console.log("appelsin");
   }
+
+  selectAllEvent( selectedAll : ITdDataTableSelectEvent) : void {
+    console.log("ALL THE ITEMS!")
+  }
   filter(): void {
     let newData: any[] = this.data;
     newData = this._dataTableService.filterData(newData, this.searchTerm, true);

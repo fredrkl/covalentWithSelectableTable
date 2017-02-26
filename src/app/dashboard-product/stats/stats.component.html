@@ -44,7 +44,8 @@
                         (sortChange)="sort($event)"
                         [selectable]="true"
                         (rowSelect)="selectEvent($event)"
-                        [multiple]="true">
+                        [multiple]="true"
+                        (selectAll)="selectAllEvent($event)">
                     </td-data-table>
                     <td-paging-bar [pageSizes]="[5, 10, 15, 20]" [total]="filteredTotal" (change)="page($event)"></td-paging-bar>
                 </md-card-content>
